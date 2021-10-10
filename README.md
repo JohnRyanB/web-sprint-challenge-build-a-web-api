@@ -18,9 +18,9 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ### Task 1: Project Set Up
 
-- [ ] Run `npm install` to install your dependencies.
-- [ ] Run tests locally executing `npm test`.
-- [ ] Reset the database to its original state executing `npm run resetdb`.
+- [*] Run `npm install` to install your dependencies.
+- [*] Run tests locally executing `npm test`.
+- [*] Reset the database to its original state executing `npm run resetdb`.
 
 ### Task 2: Project Requirements (MVP)
 
@@ -31,60 +31,60 @@ Your finished project must include all of the following requirements:
 A _"test"_ script already exists you can use to run tests against your code.
 A _"resetdb"_ script exists that allows you to reset the database to its original state.
 
-- [ ] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
-- [ ] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
-- [ ] Install _nodemon_ as a development dependency that would not be used in production.
+- [*] Write an _npm script_ named _"start"_ that uses `node` to run the API server.
+- [*] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
+- [*] Install _nodemon_ as a development dependency that would not be used in production.
 
 #### Environment Variables
 
-- [ ] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined **!!!**
+- [*] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined **!!!**
 
 #### Endpoints
 
 Inside `api/projects/projects-router.js` build the following endpoints:
 
-- [ ] `[GET] /api/projects`
+- [*] `[GET] /api/projects`
   - Returns an array of projects as the body of the response.
   - If there are no projects it responds with an empty array.
-- [ ] `[GET] /api/projects/:id`
+- [*] `[GET] /api/projects/:id`
   - Returns a project with the given `id` as the body of the response.
   - If there is no project with the given `id` it responds with a status code 404.
-- [ ] `[POST] /api/projects`
+- [*] `[POST] /api/projects`
   - Returns the newly created project as the body of the response.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[PUT] /api/projects/:id`
+- [*] `[PUT] /api/projects/:id`
   - Returns the updated project as the body of the response.
   - If there is no project with the given `id` it responds with a status code 404.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[DELETE] /api/projects/:id`
+- [*] `[DELETE] /api/projects/:id`
   - Returns no response body.
   - If there is no project with the given `id` it responds with a status code 404.
-- [ ] `[GET] /api/projects/:id/actions`
+- [*] `[GET] /api/projects/:id/actions`
   - Returns an array of actions (could be empty) belonging to a project with the given `id`.
   - If there is no project with the given `id` it responds with a status code 404.
 
 Inside `api/actions/actions-router.js` build endpoints for performing CRUD operations on _actions_:
 
-- [ ] `[GET] /api/actions`
+- [*] `[GET] /api/actions`
   - Returns an array of actions (or an empty array) as the body of the response.
-- [ ] `[GET] /api/actions/:id`
+- [*] `[GET] /api/actions/:id`
   - Returns an action with the given `id` as the body of the response.
   - If there is no action with the given `id` it responds with a status code 404.
-- [ ] `[POST] /api/actions`
+- [*] `[POST] /api/actions`
   - Returns the newly created action as the body of the response.
   - If the request body is missing any of the required fields it responds with a status code 400.
   - When adding an action make sure the `project_id` provided belongs to an existing `project`.
-- [ ] `[PUT] /api/actions/:id`
+- [*] `[PUT] /api/actions/:id`
   - Returns the updated action as the body of the response.
   - If there is no action with the given `id` it responds with a status code 404.
   - If the request body is missing any of the required fields it responds with a status code 400.
-- [ ] `[DELETE] /api/actions/:id`
+- [*] `[DELETE] /api/actions/:id`
   - Returns no response body.
   - If there is no action with the given `id` it responds with a status code 404.
 
 #### Middleware functions
 
-- [ ] Write at least two middleware functions for this API, and consume them in the proper places of your code.
+- [*] Write at least two middleware functions for this API, and consume them in the proper places of your code.
 
 ### Database Schemas
 
@@ -92,22 +92,22 @@ The description of the structure and extra information about each _resource_ sto
 
 #### Projects
 
-| Field       | Data Type | Metadata                                                                    |
-| ----------- | --------- | --------------------------------------------------------------------------- |
-| id          | number    | do not provide it when creating projects, the database will generate it     |
-| name        | string    | required                                                                    |
-| description | string    | required                                                                    |
-| completed   | boolean   | not required, defaults to false when creating projects                      |
+| Field       | Data Type | Metadata                                                                |
+| ----------- | --------- | ----------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating projects, the database will generate it |
+| name        | string    | required                                                                |
+| description | string    | required                                                                |
+| completed   | boolean   | not required, defaults to false when creating projects                  |
 
 #### Actions
 
-| Field       | Data Type | Metadata                                                                                         |
-| ----------- | --------- | ------------------------------------------------------------------------------------------------ |
-| id          | number    | do not provide it when creating actions, the database will generate it                           |
-| project_id  | number    | required, must be the id of an existing project                                                  |
-| description | string    | required, up to 128 characters long                                                              |
-| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action  |
-| completed   | boolean   | not required, defaults to false when creating actions                                            |
+| Field       | Data Type | Metadata                                                                                        |
+| ----------- | --------- | ----------------------------------------------------------------------------------------------- |
+| id          | number    | do not provide it when creating actions, the database will generate it                          |
+| project_id  | number    | required, must be the id of an existing project                                                 |
+| description | string    | required, up to 128 characters long                                                             |
+| notes       | string    | required, no size limit. Used to record additional notes or requirements to complete the action |
+| completed   | boolean   | not required, defaults to false when creating actions                                           |
 
 ### Database Persistence Helpers
 
@@ -146,8 +146,16 @@ We have provided test data for all the resources.
 
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
-1. The core features of Node.js and Express and why they are useful.
-1. Understand and explain the use of Middleware.
+1. The core features of Node.js and Express and why they are useful. Node is is useful as a runtime environment focused on async and event driven calls that simplifys the process of creating server-side functionality through javascript.
+   Express is a minimilast web framework for use in Node.js, it is great for creating routes and middleware that can modularize your file structure and increase readability
+
+1. Understand and explain the use of Middleware. Middleware is used as a way to simplify and make more readable your code. They are snippets of functions that affect your requests, and are useful for not having to repeat yourself in your code.
+
 1. The basic principles of the REST architectural style.
+   Rest must have a uniform interface, a separation of concerns between client and server, which makes it easy to find the different file structures and makes your requests more standardized. It must be stateless, so all your requests need the necessary information to complete the request, which will make errors easier to find and handle. It must be easy to tell what is chacheable and allow the client application to reuse the data if cacheable. It must use heirarchical layers to its components.
+
 1. Understand and explain the use of Express Routers.
+   Routers are used to break up large server files into smaller routes to clean up your server file for others and yourself to read, as well as allows you to more easily modularly set up your middlewares.
+
 1. Describe tooling used to manually test the correctness of an API.
+   Using an app like postman or similar tools allows you to check that your API is functional without having to build out a front end with calls that could potentially have typos. They allow us to know for certain whether it is the back end or the front end that has an issue if your calls are not working properly

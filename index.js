@@ -1,3 +1,18 @@
+const dotenv = require("dotenv").config();
+const server = require(`./api/server`);
+
+const express = require("express");
+
+const port = process.env.PORT || 5000;
+const cors = require("cors");
+
+server.use(cors());
+server.use(express.json());
+
+server.listen(port, () => {
+	console.log(`server is alive on port${port}`);
+});
+
 /*
 play this: https://www.youtube.com/watch?v=d-diB65scQU
 
